@@ -2,7 +2,7 @@
 My dot files
 
 ## Locations
-tmux: ~/.tmux.conf
-vim: ~/.vimrc
+tmux: ~/.tmux.conf  
+vim: ~/.vimrc  
 i3:
 
