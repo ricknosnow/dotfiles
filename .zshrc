@@ -82,3 +82,28 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# {{{--- My zshrc edits
+# -------------------------------------
+
+# Terminal 256 color
+export TERM="xterm-256color"
+
+# if you do a 'rm *', Zsh will give you a sanity check!
+setopt RM_STAR_WAIT
+
+# Zsh has a spelling corrector
+setopt CORRECT
+
+# Set editor
+export EDITOR="vim"
+export USE_EDITOR=$EDITOR
+export VISUAL=$EDITOR
+# }}}
+
+# {{{ My aliases -------------------------------------------
+
+alias cfg-vimrc='vim ~/.dotfiles/.vimrc'
+alias cfg-tmux='vim ~/.dotfiles/.tmux.conf'
+alias cfg-zshrc='vim ~/.dotfiles/.zshrc'
+# }}}

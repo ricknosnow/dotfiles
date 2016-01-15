@@ -23,10 +23,22 @@ hi FoldColumn cterm=bold ctermfg=DarkBlue ctermbg=none
 scriptencoding utf-8
 set encoding=utf-8
 
+" Set 256 color
+set term=screen-256color
+
+" Relative numbers toggle
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
 "-------- Visual {{{
 "------------------------------------------------------
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
- 
+
 set shiftwidth=4    " Number of spaces to use for each step of (auto)indent
 
 set number          " Show line numbers.
@@ -35,7 +47,6 @@ set showmatch       " When a bracket is inserted, briefly jump to the matching
                     " one. The jump is only done if the match can be seen on the
                     " screen. The time to show the match can be set with
                     " 'matchtime'.
-
 set hlsearch        " When there is a previous search pattern, highlight all
                     " its matches.
  
