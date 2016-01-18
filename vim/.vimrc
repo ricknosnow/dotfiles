@@ -79,3 +79,9 @@ set background=dark	" set background dark color
 "}}}
 
 "}}}
+
+"{{{-------- Pathogen {{{
+"-------------------------------------------------------
+execute pathogen#infect()
+filetype plugin indent on
+"}}}
