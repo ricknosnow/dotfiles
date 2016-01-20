@@ -20,6 +20,7 @@ hi FoldColumn cterm=bold ctermfg=DarkBlue ctermbg=none
 " located on ~/.vimrc
 "set t_Co=256
 
+
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -60,7 +61,6 @@ syntax on			" Enable color syntax
 set cursorline		" Show line highlight
 
 "}}}
-
 "-------- Themes {{{
 "------------------------------------------------------
 syntax enable
@@ -79,9 +79,22 @@ set background=dark	" set background dark color
 "}}}
 
 "}}}
-
-"{{{-------- Pathogen {{{
+"-------- Pathogen {{{
 "-------------------------------------------------------
 execute pathogen#infect()
 filetype plugin indent on
+"}}}
+"-------- Vimwiki {{{
+"--------------------------------------------
+" Needed for vim-wiki
+set nocompatible
+let g:vimwiki_list = [{'path': '~/my_site/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+"}}}
+"-------- Vim-instant-markdown {{{ ----------------------------
+"---------------------------------
+"https://github.com/suan/vim-instant-markdown.git
+"Prevent autostarting browser. Use :InstantMarkdownPreview
+"inside of VIM to launch manually.
+let g:instant_markdown_autostart = 0
 "}}}
