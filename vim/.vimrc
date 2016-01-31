@@ -81,6 +81,10 @@ set background=dark	" set background dark color
 "}}}
 "-------- Pathogen {{{
 "-------------------------------------------------------
+"Any plugins you wish to install can be extracted to a subdirectory under
+"~/.vim/bundle, and they will be added to the 'runtimepath'
+"cd ~/.vim/bundle && \
+"git clone git://github.com/tpope/vim-sensible.git
 execute pathogen#infect()
 filetype plugin indent on
 "}}}
