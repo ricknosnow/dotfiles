@@ -35,7 +35,12 @@ function! NumberToggle()
   endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" Make jj do esc"
 inoremap jj <ESC>
+
+" Make esc do nothing"
+inoremap <ESC> <Nop>
 "-------- Visual {{{
 "------------------------------------------------------
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
