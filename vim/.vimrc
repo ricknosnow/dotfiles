@@ -23,7 +23,6 @@ hi FoldColumn cterm=bold ctermfg=DarkBlue ctermbg=none
 
 scriptencoding utf-8
 set encoding=utf-8
-
 " Set 256 color
 set term=screen-256color
 
@@ -36,6 +35,7 @@ function! NumberToggle()
   endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
+inoremap jj <ESC>
 "-------- Visual {{{
 "------------------------------------------------------
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
