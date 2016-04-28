@@ -37,7 +37,7 @@ endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
 " Make jj do esc"
-inoremap jj <ESC>
+inoremap jk <ESC>
 
 " Make esc do nothing"
 inoremap <ESC> <Nop>
