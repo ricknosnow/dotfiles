@@ -124,7 +124,7 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10$workspace10
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Autoload place program on workspace
 assign [class="chromium-browser"] $workspace3
@@ -214,7 +214,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # bindsym XF86AudioNext exec playerctl next
 # bindsym XF86AudioPrev exec playerctl previous
 
-exec_always feh --bg-fill /home/rick/Pictures/i3.png
+exec_always feh --bg-fill /home/rick/Pictures/i3.jpg
 # exec compton -f
 
-exec --no-startup-id xrandr --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1280x1024 --pos 0x0 --rotate normal --output DVI-I-2 --primary --mode 1920x1080 --pos 1280x0 --rotate normal
+# exec --no-startup-id xrandr --output DVI-I-1 --off --output DVI-I-0 --off --output DVI-I-3 --mode 1280x1024 --pos 0x0 --rotate normal --output DVI-I-2 --primary --mode 1920x1080 --pos 1280x0 --rotate normal

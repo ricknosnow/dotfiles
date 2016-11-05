@@ -41,6 +41,9 @@ inoremap jk <ESC>
 
 " Make esc do nothing"
 inoremap <ESC> <Nop>
+
+" Map <space> to :
+nmap <space> :
 "-------- Visual {{{
 "------------------------------------------------------
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
