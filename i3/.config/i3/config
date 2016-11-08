@@ -230,17 +230,23 @@ bindsym XF86AudioPrev exec playerctl previous
 # See below rhythmbox examples
 # exec rhythmbox
 # exec_always rhythmbox
-exec compton
-exec dropbox
+exec --no-startup-id compton
+exec --no-startup-id dropbox
+exec --no-startup-id nm-applet # wireless applet
+exec --no-startup-id blueman-applet # bluetooth applet
+exec --no-startup-id xautolock -time 5 -locker "i3lock -c 2f343f"
 # }}}
 
 # Monitor Set Up
 # Use xrandr and arandr. arandr allows you to graphically arrange
 # your monitors, then save the scipt and copy like below.
 exec_always xrandr --output VGA-0 --off --output LVDS-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off --output DP-4 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --off
-#
+
 # Set Wallpaper
-exec_always feh --bg-scale /home/rick/Pictures/i3.jpg
+# feh creates a script in the home directory when you run it for the first
+# time. This launches that script.
+# feh  --bg-scale '/home/rick/Pictures/i3.jpg'
+exec_always --no-startup-id ~/.fehbg
 
 #{{{[ Gaps ]
 for_window [class="^.*"] border pixel 0
