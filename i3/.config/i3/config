@@ -135,7 +135,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-#{{{[ Open Files In Workspace ]
+#{{{[ Open Applications In Workspace ]
 # Use xprop program to find out the class of the window. Use the 
 # second argument in the WM_CLASS(STRING) variable.
 assign [class="vivaldi-stable"] $ws2
@@ -230,6 +230,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # See below rhythmbox examples
 # exec rhythmbox
 # exec_always rhythmbox
+exec --no-startup-id /home/rick/.dotfiles/bin/simplehttp.sh
 exec --no-startup-id compton
 exec --no-startup-id dropbox
 exec --no-startup-id nm-applet # wireless applet
