@@ -9,67 +9,44 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-#{{{[ Basic Definitions ]
 set $mod Mod4
-set $term termite
-set $browser vivaldi-stable
-#}}}
-
-#{{{[ AutoStart Progs ]
-# Simple http server:
-exec --no-startup-id /home/rick/.dotfiles/bin/simplehttp.sh
-# Compostite manager:
-exec --no-startup-id compton
-exec --no-startup-id dropbox
-# Wifi applet:
-exec --no-startup-id nm-applet # wireless applet
-# Bluetooth applet:
-exec --no-startup-id blueman-applet # bluetooth applet
-# Auto lock sceen
-exec --no-startup-id xautolock -time 10 -locker "i3lock -c 2f343f"
-# }}}
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace, DejaVu Sans Book 8
 
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-#{{{[Basic Bindings]
 # start a terminal
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $term -e tmux
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-#}}}
-
-#{{{[Letter Key Bindings]
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# Start program launcher
-bindsym $mod+d exec ~/scripts/myrofi.sh
-
-# focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# run ranger
-bindsym $mod+r exec $term -e ranger
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
 
-# restart i3 inplace
-bindsym $mod+Shift+r restart
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# Start program launcher
+# Need to start Rofi as a script. For some reason i3 does not
+# want to run with the new version.
+bindsym $mod+d exec ~/scripts/myrofi.sh
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -95,25 +72,33 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# lock the screen
-bindsym $mod+shift+x exec i3lock --color "$bg-color"
-
 # split in horizontal orientation
 bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-#}}}
 
-#{{{[Workspace Variables]
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Workspace Variables
 # You need the Font Awesome font to use the symbols for workspaces.
 set $ws1 "1:"
 set $ws2 "2:"
@@ -149,7 +134,6 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-#}}}
 
 #{{{[ Open Applications In Workspace ]
 # Use xprop program to find out the class of the window. Use the 
@@ -157,30 +141,13 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 assign [class="vivaldi-stable"] $ws2
 #}}}
 
-#{{{[ Media and Volume Keys ]
-# Pulse Audio controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle  # mute sound
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up
-bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
-bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-#}}}
-
-#{{{[External Scripts]
-# Set Wallpaper
-# feh creates a script in the home directory when you run it for the first time. This launches that script.
-exec_always --no-startup-id ~/.fehbg
-#}}}
-
-#{{{[Resize windows]
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -205,8 +172,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+z mode "resize"
-#}}}
+bindsym $mod+r mode "resize"
 
 #{{{[ Color Defaults ]
 set $bg-color 	         #2f343f
@@ -216,7 +182,7 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 #}}}
 
-#{{{[ Window Colors ]
+#{{{[ Window Wolors ]
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #00ff00
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
@@ -227,7 +193,6 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 hide_edge_borders both
 #}}}
 
-#{{{[Bar]
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -243,13 +208,50 @@ bar {
 		}
 		position top
 }
+
+# {{{[ Custom Key Bindings ]
+bindsym $mod+shift+x exec i3lock --color "$bg-color"
 #}}}
 
-#{{{[Monitor Set Up]
+#{{{[ Media and Volume Keys ]
+# Pulse Audio controls
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle  # mute sound
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up
+bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
+bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+#}}}
+
+#{{{[ AutoStart Progs ]
+# See below rhythmbox examples
+# exec rhythmbox
+# exec_always rhythmbox
+exec --no-startup-id /home/rick/.dotfiles/bin/simplehttp.sh
+exec --no-startup-id compton
+exec --no-startup-id dropbox
+exec --no-startup-id nm-applet # wireless applet
+exec --no-startup-id blueman-applet # bluetooth applet
+exec --no-startup-id xautolock -time 10 -locker "i3lock -c 2f343f"
+# }}}
+
+# Monitor Set Up
 # Use xrandr and arandr. arandr allows you to graphically arrange
 # your monitors, then save the scipt and copy like below.
 exec_always xrandr --output VGA-0 --off --output LVDS-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off --output DP-4 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --off
-#}}}
+
+# Set Wallpaper
+# feh creates a script in the home directory when you run it for the first
+# time. This launches that script.
+# feh  --bg-scale '/home/rick/Pictures/i3.jpg'
+exec_always --no-startup-id ~/.fehbg
 
 #{{{[ Gaps ]
 for_window [class="^.*"] border pixel 0
@@ -293,3 +295,4 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 #}}}
+

@@ -1,7 +1,7 @@
 # remap prefix to Control + a
 unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
+set -g prefix `
+bind ` send-prefix
 
 # UTF is great, let us use that
 # set -g utf8
