@@ -26,7 +26,7 @@ exec --no-startup-id nm-applet # wireless applet
 # Bluetooth applet:
 exec --no-startup-id blueman-applet # bluetooth applet
 # Auto lock sceen
-exec --no-startup-id xautolock -time 10 -locker "i3lock -c 2f343f"
+exec_always --no-startup-id xautolock -time 10 -locker "~/scripts/lockblur.sh"
 # }}}
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -95,7 +95,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # lock the screen
-bindsym $mod+shift+x exec i3lock --color "$bg-color"
+# bindsym $mod+shift+x exec i3lock --color "$bg-color"
+bindsym $mod+shift+x exec ~/scripts/lockblur.sh
 
 # split in horizontal orientation
 bindsym $mod+h split h
