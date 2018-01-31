@@ -20,7 +20,10 @@ set $browser vivaldi-stable
 exec --no-startup-id /home/rick/.dotfiles/bin/simplehttp.sh
 # Compostite manager:
 exec --no-startup-id compton
+# Start Dropbox:
 exec --no-startup-id dropbox
+# Start Nextcloud applet:
+exec --no-startup-id nextcloud
 # Wifi applet:
 exec --no-startup-id nm-applet # wireless applet
 # Bluetooth applet:
@@ -151,13 +154,13 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 #}}}
 
-#{{{[ Open Applications In Workspace ]
+#{{{[Open Applications In Workspace ]
 # Use xprop program to find out the class of the window. Use the 
 # second argument in the WM_CLASS(STRING) variable.
 assign [class="Vivaldi-stable"] $ws2
 #}}}
 
-#{{{[ Media and Volume Keys ]
+#{{{[Media and Volume Keys ]
 # Pulse Audio controls
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
@@ -208,7 +211,7 @@ mode "resize" {
 bindsym $mod+z mode "resize"
 #}}}
 
-#{{{[ Color Defaults ]
+#{{{[Color Defaults ]
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -216,7 +219,7 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 #}}}
 
-#{{{[ Window Colors ]
+#{{{[Window Colors]
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #00ff00
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
