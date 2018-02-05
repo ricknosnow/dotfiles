@@ -23,7 +23,7 @@ exec --no-startup-id compton
 # Start Dropbox:
 exec --no-startup-id dropbox
 # Start Nextcloud applet:
-exec --no-startup-id nextcloud
+#exec --no-startup-id nextcloud
 # Wifi applet:
 exec --no-startup-id nm-applet # wireless applet
 # Bluetooth applet:
@@ -52,6 +52,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 #{{{[Letter Key Bindings]
 
+# run ranger
+bindsym $mod+r exec $term -e ranger
+
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -63,9 +66,6 @@ bindsym $mod+d exec ~/scripts/myrofi.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# run ranger
-bindsym $mod+r exec $term -e ranger
 
 # restart i3 inplace
 bindsym $mod+Shift+r restart
