@@ -1,5 +1,5 @@
 
-"-------- Folding {{{
+"--------Folding {{{
 "------------------------------------------------------
 " enable folding; http://vim.wikia.com/wiki/Folding
 set foldmethod=marker
@@ -67,6 +67,8 @@ set ignorecase      " Ignore case in search patterns.
 syntax on			" Enable color syntax
 
 set cursorline		" Show line highlight
+
+set colorcolumn=81	" Highlight column 81
 
 "}}}
 "-------- Themes {{{
