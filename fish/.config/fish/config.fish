@@ -14,16 +14,16 @@ source $OMF_PATH/init.fish
 fish_vi_key_bindings
 
 # Alises
-alias ls='ls --color=auto' # gimmie colors
-alias l='ls -lah --color=auto'   # Long view, show hidden
-alias la='ls -AF --color=auto'   # Compact view, show hidden
-alias ll='ls -lFh --color=auto'  # Long view, no hidden
+alias ls='ls --color=auto' 			# gimmie colors
+alias l='ls -lah --color=auto'   	# Long view, show hidden
+alias la='ls -AF --color=auto'   	# Compact view, show hidden
+alias ll='ls -lFh --color=auto'  	# Long view, no hidden
 alias tmux='TERM=xterm-256color \tmux'
-alias grep='grep --color=auto' # Always highlight grep search term
-alias df='df -h'            # Disk free, in gigabytes, not bytes
-alias du='du -h -c'         # Calculate total disk usage for a folder
-alias sv='sudo -e  vim' # Run vim as super user
-alias v='vim' # Run vim
+alias grep='grep --color=auto' 		# Always highlight grep search term
+alias df='df -h'            		# Disk free, in gigabytes, not bytes
+alias du='du -h -c'         		# Calculate total disk usage for a folder
+alias v='vim' 						# Run vim
+alias sv='sudo -e vim' 				# Run vim as super user
 
 alias gs='git status '
 alias ga='git add '
